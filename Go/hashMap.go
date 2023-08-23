@@ -22,7 +22,7 @@ func Constructor() MyHashMap
 }
 
 func (this *MyHashMap) Put(key int, value int)  {
-	//% is to find the position in the array aka --> index
+    //% is to find the position in the array aka --> index
     position := key % this.size
    
    //Create a new node with key and value
@@ -33,18 +33,18 @@ func (this *MyHashMap) Put(key int, value int)  {
         next: nil,
     }
     
-	//Check if the current position is empty
-	//if true, then assign it to newNode 
-	// and return
+    //Check if the current position is empty
+    //if true, then assign it to newNode 
+    // and return
     if this.arr[position] == nil 
 	{
         this.arr[position] = newNode
         return
     }
     
-	//Check if the new key exist or not
-	//Iterate through the chaining 
-	//Check if the key matches, if yes then replace the old value with newValue
+    //Check if the new key exist or not
+    //Iterate through the chaining 
+    //Check if the key matches, if yes then replace the old value with newValue
     head := this.arr[position]
 
     for head != nil {
