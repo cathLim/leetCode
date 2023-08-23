@@ -57,9 +57,9 @@ func (this *MyHashMap) Put(key int, value int)  {
         head = head.next
     }
 	
-	//if new key does not exist in map
-	//insert the new key to the head of the linked list
-	//head but not tail as the time complexity of head O(1) while tail is O(n)
+    //if new key does not exist in map
+    //insert the new key to the head of the linked list
+    //head but not tail as the time complexity of head O(1) while tail is O(n)
     newNode.next = this.arr[position]
     this.arr[position] = newNode
 }
@@ -68,8 +68,8 @@ func (this *MyHashMap) Get(key int) int {
     position := key % this.size
     head := this.arr[position]
     
-	//Loop thru the whole linked list 
-	//Check if key matched, if yes return value, else return -1
+    //Loop thru the whole linked list 
+    //Check if key matched, if yes return value, else return -1
     for head != nil 
 	{
         if head.key == key 
@@ -84,17 +84,17 @@ func (this *MyHashMap) Get(key int) int {
 }
 
 func (this *MyHashMap) Remove(key int)  {
-	//Look for the position to remove
+    //Look for the position to remove
     position := key % this.size
     head := this.arr[position]
     
-	// position is empty(key does not exist in the map) 
+    // position is empty(key does not exist in the map) 
     if head == nil {
         return
     }
        
-	//check key is the head of the linked list or not
-	//if yes, update the  arr[position] to the next value of head
+    //check key is the head of the linked list or not
+    //if yes, update the  arr[position] to the next value of head
     if head.key == key {
         head = head.next
         this.arr[position] = head
