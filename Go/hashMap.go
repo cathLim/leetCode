@@ -14,8 +14,7 @@ type MyHashMap struct
 	arr []*node
 }
 
-func Constructor() MyHashMap 
-{
+func Constructor() MyHashMap {
     return MyHashMap {size: 1000,
         arr: make([]*node, 1000),
     }
@@ -26,8 +25,7 @@ func (this *MyHashMap) Put(key int, value int)  {
     position := key % this.size
    
    //Create a new node with key and value
-    newNode := &node 
-    {
+    newNode := &node {
         key: key,
         val: value,
         next: nil,
@@ -36,8 +34,7 @@ func (this *MyHashMap) Put(key int, value int)  {
     //Check if the current position is empty
     //if true, then assign it to newNode 
     // and return
-    if this.arr[position] == nil 
-    {
+    if this.arr[position] == nil {
         this.arr[position] = newNode
         return
     }
@@ -48,8 +45,7 @@ func (this *MyHashMap) Put(key int, value int)  {
     head := this.arr[position]
 
     for head != nil {
-        if head.key == key 
-	{
+        if head.key == key {
             head.val = value
             return
         }
@@ -64,17 +60,14 @@ func (this *MyHashMap) Put(key int, value int)  {
     this.arr[position] = newNode
 }
 
-func (this *MyHashMap) Get(key int) int 
-{
+func (this *MyHashMap) Get(key int) int {
     position := key % this.size
     head := this.arr[position]
     
     //Loop thru the whole linked list 
     //Check if key matched, if yes return value, else return -1
-    for head != nil 
-	{
-        if head.key == key 
-	{
+    for head != nil {
+        if head.key == key {
             return head.val    
         }
         
@@ -84,22 +77,19 @@ func (this *MyHashMap) Get(key int) int
     return -1
 }
 
-func (this *MyHashMap) Remove(key int) 
-{
+func (this *MyHashMap) Remove(key int) {
     //Look for the position to remove
     position := key % this.size
     head := this.arr[position]
     
     // position is empty(key does not exist in the map) 
-    if head == nil
-    {
+    if head == nil {
         return
     }
        
     //check key is the head of the linked list or not
     //if yes, update the  arr[position] to the next value of head
-    if head.key == key 
-    {
+    if head.key == key {
         head = head.next
         this.arr[position] = head
         return
@@ -107,10 +97,8 @@ func (this *MyHashMap) Remove(key int)
     
     var prev *node
     
-    for head != nil
-    {
-        if head.key == key 
-	{
+    for head != nil{
+        if head.key == key {
             prev.next = head.next
             return
         }
