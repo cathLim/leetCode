@@ -12,7 +12,7 @@ func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-   	 //rune data type is used to represent a Unicode code point
+   	//rune data type is used to represent a Unicode code point
 	//suitable for handling char
 	smap := make(map[rune]int)
 	tmap := make(map[rune]int)
