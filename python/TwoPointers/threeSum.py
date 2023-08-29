@@ -46,6 +46,7 @@ class Solution:
                     output.append([a, nums[l], nums[r]])
                     l += 1
                     r -= 1
+                    #check duplicates
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
         return output
